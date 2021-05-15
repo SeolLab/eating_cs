@@ -1,20 +1,21 @@
 #include <stdio.h>
-
-int power(int x, int n)
-{	
-	if(x == 1 || n == 1) return x;
-	
-	else return x *= power(x, n - 1);
-} 
+#include <string.h>
+#include <ctype.h>
 
 
 int main() {
+	char str[100];
+	int i;
+	
+	gets(str);
+	
+	for(i = 0; i < strlen(str); i++) {
+		if(isalpha(str[i]) == 0) continue;
+		else if(isupper(str[i])) str[i] = tolower(str[i]);
+		else if(islower(str[i])) str[i] = toupper(str[i]);
+	}
+	
+	printf("%s", str);
 
-	int a, b;
-	
-	scanf("%d %d", &a, &b);
-	
-	printf("%d의 %d제곱은 %d입니다.\n", a, b, power(a, b));	
-	
-	return 0;
+	return 0;	
 }
